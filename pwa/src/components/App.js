@@ -3,6 +3,7 @@ import {Route, withRouter} from 'react-router-dom'
 import './App.css';
 import LoginContainer from './LoginContainer/LoginContainer'
 import ChatContainer from './ChatContainer/ChatContainer'
+import UserContainer from './UserContainer/UserContainer'
 import firebase from '../fbConfig'
 
 class App extends Component {
@@ -25,7 +26,8 @@ class App extends Component {
     return (
       <div id="container" className="inner-container">
         <Route path="/login" component={LoginContainer} />
-        <Route path="/" component={ChatContainer} />
+        <Route exact path="/" component={ChatContainer} />
+        <Route path="/users/:id" component={UserContainer} />
       </div>
     )
   

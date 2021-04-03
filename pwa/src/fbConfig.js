@@ -5,7 +5,7 @@ import 'firebase/auth'
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
-    apiKey: window.apiKey,
+    apiKey: "AIzaSyD_kMbDUkvZadepqCL0ovSNgBv5njaeZL4",
     authDomain: "chatastrophe-60f0c.firebaseapp.com",
     projectId: "chatastrophe-60f0c",
     storageBucket: "chatastrophe-60f0c.appspot.com",
