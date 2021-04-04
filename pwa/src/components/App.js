@@ -69,7 +69,10 @@ class App extends Component {
         user={this.state.user}
         messagesLoaded={this.state.messagesLoaded}
         />} />
-        <Route path="/users/:id" component={UserContainer} />
+        <Route path="/users/:id" render={({history,match})=> <UserContainer 
+              messages={this.state.messages}
+              messagesLoaded={this.state.messagesLoaded}
+              userID={match.params.id}/>} />
       </div>
     )
   
