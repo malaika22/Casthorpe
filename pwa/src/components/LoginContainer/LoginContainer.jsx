@@ -28,6 +28,7 @@ class LoginContainer extends Component {
           .createUserWithEmailAndPassword(this.state.email, this.state.password)
           .then(res => {
             console.log(res);
+            this.onLogin()
           })
           .catch(error => {
             console.log(error);
