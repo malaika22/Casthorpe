@@ -4,7 +4,9 @@ import './App.css';
 import LoginContainer from './LoginContainer/LoginContainer'
 import ChatContainer from './ChatContainer/ChatContainer'
 import UserContainer from './UserContainer/UserContainer'
+import NotificationResource from '../resources/NotificationResource'
 import firebase from '../fbConfig'
+import 'firebase/messaging'
 
 class App extends Component {
   state= { 
@@ -14,6 +16,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    this.notifications = new NotificationResource(firebase.messaging(), firebase.database())
     firebase.auth().onAuthStateChanged(user=>{
       if(user) {
         console.log(user)
