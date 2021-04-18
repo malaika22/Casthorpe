@@ -36,6 +36,17 @@ class App extends Component {
 
     // firebase.database().ref('/messages/-MXNEkdV3QGwzTgU7XpO/msg').set('checking something')
   }
+
+  listenForInstallBanner = () =>{
+    window.addEventListener('beforeinstallprompt' , e =>{
+      console.log("Event install prompt event fired");
+      e.preventDefault()
+       // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+    })
+  }
+
+
   handleSubmitMessage = msg => {
     // Send to database
     const data = {
@@ -48,6 +59,13 @@ class App extends Component {
     .database()
     .ref('/messages')
     .push(data)
+    if(this.deferredPrompt) {
+      this.deferredPrompt.prompt();
+      this.deferredPrompt.userChoice.then(choice=>{
+        console.log(choice)
+      });
+      this.deferredPrompt = null
+    }
   };
 
     onMessage = snapshot =>{
