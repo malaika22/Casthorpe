@@ -1,0 +1,16 @@
+{
+  "short_name": "Chatastrophe",
+  "name": "Chatastrophe",
+"icons": [
+    {
+      "src":"./favicon.ico",
+      "sizes": "16x16",
+      "type": "image/ico"
+    }
+  ],
+  
+  "start_url": "/?utm_source=homescreen",
+  "display": "standalone",
+  "theme_color": "#e05a47",
+  "background_color": "#e05a47"
+}

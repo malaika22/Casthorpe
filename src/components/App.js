@@ -16,11 +16,13 @@ class App extends Component {
   }
 
   componentDidMount(){
+    console.log("notification instance")
     this.notifications = new NotificationResource(firebase.messaging(), firebase.database())
     firebase.auth().onAuthStateChanged(user=>{
       if(user) {
         console.log(user)
         this.setState({user})
+        this.notifications.changeUser(user);
       }  else {
         this.props.history.push("/login")
       }
